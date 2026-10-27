@@ -19,7 +19,7 @@ class MahasiswaFactory extends Factory
     public function definition(): array
     {
         return [
-            'nim' =>fake()->unique()->numerify('########'), // Generate a unique 8-digit number
+            'nim' =>fake()->unique()->numerify('########'), 
             'nama' => fake()->name(),
             'kota' => fake()->city()
             //
