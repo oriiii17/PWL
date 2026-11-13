@@ -39,7 +39,7 @@
                     <td>{{ $d->nik }}</td>
                     <td>{{ $d->namaDosen }}</td>
                     <td>
-                        <a href="{{route('dosen.edit', $d->nik)}}" class="btn-solid theme-success">EDIT</a>
+                        <a href="{{ route('dosen.edit', $d->nik) }}" class="btn-solid theme-success">EDIT</a>
                     </td>
                 </tr>
               @endforeach
