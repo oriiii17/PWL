@@ -12,7 +12,8 @@ class DosenController extends Controller
      */
     public function index()
     {
-        //
+        $data = Dosen::all();
+        return view('dosen.index', compact('data'));
     }
 
     /**
@@ -21,6 +22,7 @@ class DosenController extends Controller
     public function create()
     {
         //
+        return view('dosen.create');
     }
 
     /**
@@ -29,6 +31,19 @@ class DosenController extends Controller
     public function store(Request $request)
     {
         //
+        $requestt->validate([
+            'nik' => 'required|string|digit:7|unique:dosen,nik',
+            'namaDosen' => 'rquired'],[
+                'nik.required' => 'NIK Wajib di Isi',
+                'nim.numeric' => 'NIK Harus Berupa Angka',
+                'nim.digits' => 'NIM Wajib 7 Digits',
+                'nim.unique' => 'NIM Sudah Terdaftar',
+                'namaDosen' => 'Nama Dosen Wajib di Isi'
+        ]);
+
+        Dosen::create($request->all());
+
+        return redirect()->route('dosen.index')->with('success','Data Berhasil di Simpan!');
     }
 
     /**
