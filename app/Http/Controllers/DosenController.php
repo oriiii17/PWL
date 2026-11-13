@@ -32,8 +32,8 @@ class DosenController extends Controller
     {
         //
         $requestt->validate([
-            'nik' => 'required|string|digit:7|unique:dosen,nik',
-            'namaDosen' => 'rquired'],[
+            'nik' => 'required|string|digit:7|unique:dosens,nik',
+            'namaDosen' => 'required'],[
                 'nik.required' => 'NIK Wajib di Isi',
                 'nim.numeric' => 'NIK Harus Berupa Angka',
                 'nim.digits' => 'NIM Wajib 7 Digits',
@@ -52,6 +52,7 @@ class DosenController extends Controller
     public function show(Dosen $dosen)
     {
         //
+        return view('dosen.edit');
     }
 
     /**
